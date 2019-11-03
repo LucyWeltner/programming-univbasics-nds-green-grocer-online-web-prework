@@ -77,6 +77,6 @@ def apply_coupons_new(cart, coupons)
   cart
 end
 
-p apply_coupons([
+p apply_coupons_new([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 2},
   {:item => "KALE",    :price => 3.00, :clearance => false, :count => 1}], [{:item => "AVOCADO", :num => 2, :cost => 5.00}])
