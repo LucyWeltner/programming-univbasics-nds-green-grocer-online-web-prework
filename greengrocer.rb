@@ -62,6 +62,9 @@ def apply_coupons_new(cart, coupons)
     while j < coupons.length do
       if cart[i][:item] == coupons[j][:item] && cart[i][:count] >= coupons[j][:num]
         cart << {:item => "#{cart[i][:item]} W/ COUPON", :count => coupons[j][:num], :clearance => cart[i][:clearance], :price => coupons[j][:cost]/coupons[j][:num]}
+        if cart[i][:count] == coupons[j][:num]
+          cart.delete_at(i)
+        end
         if cart[i][:count] > coupons[j][:num]
           cart[i][:count] = cart[i][:count] - coupons[j][:num]
         end
