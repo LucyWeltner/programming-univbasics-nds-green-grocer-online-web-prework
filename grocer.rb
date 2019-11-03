@@ -57,7 +57,7 @@ def apply_coupons(cart, coupons)
       end
        j += 1
     end
-    i+=1
+    i += 1
     j = 0
   end
   cart
