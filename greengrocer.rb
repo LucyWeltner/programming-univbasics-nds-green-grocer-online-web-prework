@@ -80,3 +80,14 @@ end
 p apply_coupons_new([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
   {:item => "KALE",    :price => 3.00, :clearance => false, :count => 1}], [{:item => "AVOCADO", :num => 2, :cost => 5.00}])
+  
+def apply_clearance(cart)
+  i = 0 
+  while i < cart.length do
+    if cart[i][:clearance] == true
+      cart[i][:price] = 0.8*cart[i][:price]
+    end
+    i += 1
+  end
+  cart
+end
