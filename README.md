@@ -101,6 +101,16 @@ Below find descriptions of each of the methods the tests will guide you to
 create.
 
 ### Write the `find_item_by_name_in_collection` Method
+def find_item_by_name_in_collection(String, array)
+  i = 0
+  while i < array.length
+    if array[i][:item] == String
+      return array[i]
+    end
+    i += 1
+  end
+return nil
+end 
 
 * Arguments:
   * `String`: name of the item to find
@@ -109,6 +119,11 @@ create.
   * `nil` if no match is found
   * the matching `Hash` if a match is found between the desired name and a given 
     `Hash`'s :item key
+
+def consolidate_cart(array)
+  consolidated_array = []
+    if consolidated_array[:item] == array[i][:item]
+      consolidated_array[i][:item] = array[i][:item]
 
 ### Write the `consolidate_cart` Method
 
@@ -156,7 +171,23 @@ Development."  We can safely add new features because our tests tell us we
 haven't broken the old ones.
 
 ### Write the `apply_coupons` Method
-
+def apply_coupons(cart, coupons)
+  i = 0
+  j = 0 
+  cartWithCoupons = []
+  while i < cart.length do
+    while j < coupons.length do
+      if cart[i][:item] == coupons[j][:item] && cart[i][:count] > coupons[j][:count]
+        cartWithCoupons << cart[i]
+        cartWithCoupons[-1][:item] = "#{cart[i][:item]} W/ COUPON"
+        cartWithCoupons[-1][:count] = coupon[j][:count]
+        cartWithCoupons[-1][:price] = coupons[j][:count]/coupons[j][:price]
+        p cartWithCoupons
+      end
+    end
+  end
+end
+        
 * Arguments:
   * `Array`: a collection of item `Hash`es
   * `Array`: a collection of coupon `Hash`es
